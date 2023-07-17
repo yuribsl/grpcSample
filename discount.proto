@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpcSample.Grpc";
+
+package API;
+
+service DescontosGrpc {
+	rpc GetCupom (GetCupomByIdRequest) returns (GetCupomByIdResponse) {}
+}
+
+message GetCupomByIdRequest {
+	string CouponId = 1;
+}
+
+message GetCupomByIdResponse {
+	Cupom cupom = 1;
+}
+
+
+message Cupom {
+	string CupomId = 1;
+	string Codigo = 2;
+	int32 Quantidade = 3;
+	bool JaFoiUsado = 4;
+}
